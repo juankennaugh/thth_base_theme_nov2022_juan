@@ -1,0 +1,121 @@
+@use "sass:math";
+@use "../base/tools/" as *;
+
+/*
+|--------------------------------------------------------------------------
+ | FLEXBOXGRID
+ |--------------------------------------------------------------------------
+ |
+ | Table of content
+ | ----------------
+ |  1. Grid Config
+ |  2. Container
+ |  3. Row
+ |  4. Cols
+ |  5. Cols XS
+ |  6. Cols SM
+ |  7. Cols MD
+ |  8. Cols LG
+ |  9. Fallback
+ |
+ */
+/*
+ |--------------------------------------------------------------------------
+ | 1. Grid Config
+ |--------------------------------------------------------------------------
+ |
+ | Define your grid stacks here:
+ |
+ | @param {Number}   $gutter-width
+ | @param {Number}   $gutter-margin
+ | @param {Number}   $gutter-columns
+ |
+ */
+$gutter-width-in-pixels: 24;
+$content-max-width-in-pixels: 1200;
+$container-padding-in-pixels: 20;
+$grid-columns: 12;
+$container-padding: pxToRem($container-padding-in-pixels);
+$half-gutter-width: pxToRem($gutter-width-in-pixels * 0.5);
+$gutter-compensation: pxToRem($gutter-width-in-pixels * -0.5);
+$container-max-width-with-padding: pxToRem($content-max-width-in-pixels) +
+    pxToRem($container-padding-in-pixels * 2);
+/*
+  |--------------------------------------------------------------------------
+  | 2. Container
+  |--------------------------------------------------------------------------
+  */
+.l-container {
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: $container-padding;
+    padding-left: $container-padding;
+    max-width: $container-max-width-with-padding;
+    width: 100%;
+}
+/*
+  |--------------------------------------------------------------------------
+  | 3. Row
+  |--------------------------------------------------------------------------
+  */
+.l-row {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-right: $gutter-compensation;
+    margin-left: $gutter-compensation;
+}
+/*
+  |--------------------------------------------------------------------------
+  | 4. Cols
+  |--------------------------------------------------------------------------
+  */
+%default-col {
+    box-sizing: border-box;
+    flex: 0 0 100%;
+    padding-right: $half-gutter-width;
+    padding-left: $half-gutter-width;
+    max-width: 100%;
+}
+.l-col {
+    @extend %default-col;
+    flex-grow: 1;
+    flex-basis: 100%;
+    max-width: 100%;
+}
+/*
+  |--------------------------------------------------------------------------
+  | 5. Cols XS
+  |--------------------------------------------------------------------------
+  */
+// xs grid
+@for $i from 1 through $grid-columns {
+    .l-col-#{$i} {
+        flex-basis: math.percentage(math.div($i, $grid-columns));
+        max-width: math.percentage(math.div($i, $grid-columns));
+    }
+}
+// xs offset
+@for $i from 0 through $grid-columns {
+    .l-col-offset-#{$i} {
+        margin-left: math.percentage(math.div($i, $grid-columns));
+    }
+}
+@each $bp-name, $bp-value in $breakpoints {
+    @include mq($from: $bp-name) {
+
+        @for $i from 1 through $grid-columns {
+            .#{$bp-name}\:l-col-#{$i} {
+                flex-basis: math.percentage(math.div($i, $grid-columns));
+                max-width: math.percentage(math.div($i, $grid-columns));
+            }
+        }
+        @for $i from 0 through $grid-columns {
+            .#{$bp-name}\:l-col-offset-#{$i} {
+                margin-left: math.percentage(math.div($i, $grid-columns));
+            }
+        }
+    }
+}

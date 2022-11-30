@@ -1,0 +1,135 @@
+/*
+ |--------------------------------------------------------------------------
+ | TABLE OF CONTENT
+ |--------------------------------------------------------------------------
+ |
+ | TOC
+ | ----------------
+ |  1. Tools and Base
+ |  2. Config
+ |  3. Styles
+ |  4. Utilities  
+ */
+/*
+ |--------------------------------------------------------------------------
+ | 1. Tools and Base
+ |--------------------------------------------------------------------------
+ */
+ // @use "base/reset";
+ /*
+  |--------------------------------------------------------------------------
+  | 2. Config
+  |--------------------------------------------------------------------------
+  */
+ @use "config/fonts";
+ @use "config/flexgrid";
+ /*
+  |--------------------------------------------------------------------------
+  | 3. Utilities
+  |--------------------------------------------------------------------------
+  */
+ 
+
+@use 'uniform' as * with (
+  $config: (
+    // css-variables: false,
+    screen-delimiter: ":",
+    
+    // Screens 
+    screens: (
+      "sm": 640px,
+      "md": 768px,
+      "lg": 1024px,
+      "xl": 1280px,
+    ),
+    // Font Families
+    font-families: (
+      heading: (Helvetica, Arial, sans-serif),
+      body: (Helvetica, Arial, sans-serif)
+    ),
+    // Font Sizes 
+    // @tools: https://min-max-calculator.9elements.com/, https://type-scale.com/ (1.250)
+    // 
+    font-sizes: (
+      h1: (
+        font-size: clamp(2.438rem, 2.233rem + 1.02vw, 3rem),
+        // minW: 320 – maxW: 1200 | minPX: 39 – maxPX: 48
+        line-height: 1.3
+      ),
+      h2:(
+        font-size: clamp(1.938rem, 1.756rem + 0.91vw, 2.438rem),
+        // minW: 320 – maxW: 1200 | minPX: 31 – maxPX: 39
+        line-height: 1.3
+      ),
+      h3:(
+        font-size: clamp(1.563rem, 1.426rem + 0.68vw, 1.938rem),
+        // minW: 320 – maxW: 1200 | minPX: 25 – maxPX: 31
+        line-height: 1.3
+      ),
+      h4:(
+        font-size: clamp(1.313rem, 1.222rem + 0.45vw, 1.563rem),
+        // minW: 320 – maxW: 1200 | minPX: 20 – maxPX: 25
+        line-height: 1.3
+      ),
+      h5:(
+        font-size: clamp(1.063rem, 0.994rem + 0.34vw, 1.25rem),
+        // minW: 320 – maxW: 1200 | minPX: 17 – maxPX: 20
+        line-height: 1.3
+      ),
+      h6:(
+        font-size: clamp(1rem, 0.955rem + 0.23vw, 1.125rem),
+        // minW: 320 – maxW: 1200 | minPX: 16 – maxPX: 18
+        line-height: 1.3
+      )
+    ),
+    // Exclude 
+    colors: null,
+    gradients: null, 
+    extend: (
+      colors: (
+        // Base
+        black: #000000,
+        white: #ffffff,
+        // Greyscale
+        grey-50: #f6f7f7,
+        grey-100: #eceded,
+        grey-200: #fafafa,
+        grey-300: #dfe0e0,
+        grey-400: #bdbdbd,
+        grey-500: #868787,
+        grey-600: #5f6060,
+        grey-700: #4c4d4d,
+        grey-800: #212121,
+        grey-900: #0e0f0f,
+        // dark 1
+        // Alerts
+        success-500: #26e066,
+        info-500: #3300ff,
+        warning-500: #ffb300,
+        error-500: #ff385c,
+        // Brand Colours
+        // Primary
+        red-500: #e40134,
+        charcola-500: #2b3134,
+        // Secondary
+        light-grey-500: #efefef,
+        lilac-500: #d9cce0,
+        light-blue-500: #bec9e4,
+        yellow-500: #fde5b7,
+        orange-500: #ffcaab,
+        mint-500: #bcd8d1,
+      ),
+    ),
+  )
+);
+
+ // @use "utilities";
+
+ /*
+  |--------------------------------------------------------------------------
+  | 4. Styles
+  |--------------------------------------------------------------------------
+  */
+ @use "config/typography";
+
+ @use "styles";

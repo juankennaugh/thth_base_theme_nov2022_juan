@@ -1,0 +1,41 @@
+{
+  "name": "@thirtythree/basetheme",
+  "version": "1.0.0",
+  "main": "webpack.mix.js",
+  "scripts": {
+    "development": "mix",
+    "watch": "mix watch",
+    "watch-poll": "mix watch -- --watch-options-poll=1000",
+    "hot": "mix watch --hot",
+    "production": "mix --production"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "browserslist": {
+    "production": [
+      "defaults"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "laravel-mix": "^6.0.43",
+    "laravel-mix-purgecss": "^6.0.0",
+    "sass": "^1.56.1",
+    "sass-loader": "^12.6.0",
+    "path": "^0.12.7"
+  },
+  "dependencies": {
+    "@algolia/autocomplete-js": "^1.7.1",
+    "@algolia/autocomplete-theme-classic": "^1.7.1",
+    "algoliasearch": "^4.14.2",
+    "instantsearch.css": "^7.4.5",
+    "instantsearch.js": "^4.48.0",
+    "uniformcss": "^1.5.4"
+  }
+}

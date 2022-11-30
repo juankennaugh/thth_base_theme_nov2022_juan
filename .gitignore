@@ -1,0 +1,46 @@
+# C5
+public_html/application/config/generated_overrides/
+public_html/application/files/
+public_html/.htaccess
+public_html/sitemap.xml
+public_html/sitemap-google-jobs.xml
+
+# SASS
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
+
+# Mix
+mix-manifest.json
+
+# JS
+node_modules/
+npm-debug.log
+
+# ENV
+.env
+
+
+# macOS
+*.DS_Store
+.AppleDouble
+.LSOverride
+.Idea
+Icon
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+
+.AppleDB
+.AppleDesktop
+.apdisk
